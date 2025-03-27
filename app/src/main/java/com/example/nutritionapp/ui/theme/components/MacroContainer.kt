@@ -29,8 +29,10 @@ fun MacroContainer(
     val progressCalorie = calories.toFloat() / maxCalories
     Card(
         modifier = Modifier.fillMaxWidth()
-            .height(400.dp)
+            .height(200.dp)
     ) {
+        Spacer(Modifier.height(20.dp))
+
         Text(
             modifier = Modifier.fillMaxWidth(),
             text = "Calorie Budget",
@@ -43,7 +45,7 @@ fun MacroContainer(
 
         Text(
             modifier = Modifier.fillMaxWidth(),
-            text = "${calories}",
+            text = "${calories} / ${maxCalories}",
             color = LetterColor,
             style = MaterialTheme.typography.headlineMedium,
             textAlign = TextAlign.Center,
@@ -52,11 +54,9 @@ fun MacroContainer(
         Spacer(Modifier.height(20.dp))
 
         LinearProgressIndicator(
-            progress = {
-                progressCalorie
-            },
+            progress = { progressCalorie },
             modifier = Modifier.fillMaxWidth()
-                .height(8.dp)
+                .height(20.dp)
                 .padding(horizontal = 40.dp),
             color = BitterSweet,
             trackColor = MayaBlue
